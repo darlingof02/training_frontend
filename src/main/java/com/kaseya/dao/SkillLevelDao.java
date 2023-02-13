@@ -8,4 +8,6 @@ import java.util.UUID;
 
 public interface SkillLevelDao extends JpaRepository<SkillLevel, UUID> {
     List<SkillLevel> findAll();
+
+
 }

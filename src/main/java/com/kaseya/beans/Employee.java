@@ -1,6 +1,7 @@
 package com.kaseya.beans;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -38,7 +39,7 @@ public class Employee implements Serializable {
     @Column(name = "age")
     private int age;
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "skilllevel_skillLevelID", updatable = false)
+    @JoinColumn(name = "skilllevel_skillLevelID", updatable = true)
     private SkillLevel skillLevel;
 
     public Employee() {

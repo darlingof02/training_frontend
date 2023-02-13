@@ -37,8 +37,9 @@ public class EmployeeService {
         employee1.setEmail(employee.getEmail());
         employee1.setFirstName(employee.getFirstName());
         employee1.setLastName(employee.getLastName());
-        SkillLevel skillLevel1 = skillLevelDao.getReferenceById(employee.getSkillLevel().getSkillLevelID());
+        SkillLevel skillLevel1 = skillLevelDao.findById(employee.getSkillLevel().getSkillLevelID()).get();
         employee1.setSkillLevel(skillLevel1);
+        System.out.println(employee1);
         return employeeDao.save(employee1);
     }
 
