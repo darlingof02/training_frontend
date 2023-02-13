@@ -38,7 +38,6 @@ public class JwtAuthenticationController {
 
         System.out.println(authenticationRequest);
         authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
-//        System.out.println("This is flag 2");
         final UserDetails userDetails = userDetailsService
                 .loadUserByUsername(authenticationRequest.getUsername());
 
@@ -57,9 +56,7 @@ public class JwtAuthenticationController {
 
     private void authenticate(String username, String password) throws Exception {
         try {
-
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
-
         } catch (DisabledException e) {
             throw new Exception("USER_DISABLED", e);
         } catch (BadCredentialsException e) {

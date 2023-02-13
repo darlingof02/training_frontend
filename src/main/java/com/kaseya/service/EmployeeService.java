@@ -17,7 +17,9 @@ public class EmployeeService {
     EmployeeDao employeeDao;
     @Autowired
     SkillLevelDao skillLevelDao;
+
     public List<Employee> getAllEmployees() {
+
         return employeeDao.findAll();
     }
 

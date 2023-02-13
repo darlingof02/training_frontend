@@ -2,11 +2,12 @@ package com.kaseya.beans;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.UUID;
 
 @Entity
 @Table(name = "kaseyatraining.skill_level")
-public class SkillLevel {
+public class SkillLevel implements Serializable {
     @Id
 //    @GeneratedValue(strategy = GenerationType.AUTO, generator = "SEQ")
 //    @SequenceGenerator(name = "SEQ", sequenceName = "CCGG_USER_SEQ")

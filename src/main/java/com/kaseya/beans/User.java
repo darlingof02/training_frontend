@@ -2,11 +2,12 @@ package com.kaseya.beans;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.UUID;
 
 @Entity
 @Table(name = "kaseyatraining.user")
-public class User {
+public class User implements Serializable {
     public UUID getId() {
         return id;
     }

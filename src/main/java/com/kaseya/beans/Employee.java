@@ -4,12 +4,13 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
 
 @Entity
 @Table(name = "kaseyatraining.employee")
-public class Employee {
+public class Employee implements Serializable {
     @Id
 //    @GeneratedValue(strategy = GenerationType.AUTO, generator = "SEQ")
 //    @SequenceGenerator(name = "SEQ", sequenceName = "CCGG_USER_SEQ")
