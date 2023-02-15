@@ -10,8 +10,6 @@ import java.util.UUID;
 @Table(name = "kaseyatraining.skill_level")
 public class SkillLevel implements Serializable {
     @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO, generator = "SEQ")
-//    @SequenceGenerator(name = "SEQ", sequenceName = "CCGG_USER_SEQ")
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(
             name = "UUID",

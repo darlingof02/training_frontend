@@ -13,8 +13,6 @@ import java.util.UUID;
 @Table(name = "kaseyatraining.employee")
 public class Employee implements Serializable {
     @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO, generator = "SEQ")
-//    @SequenceGenerator(name = "SEQ", sequenceName = "CCGG_USER_SEQ")
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(
             name = "UUID",
@@ -30,7 +28,7 @@ public class Employee implements Serializable {
     private String lastName;
 
     @Column(name = "DOB")
-//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM-dd-yyyy")
+//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM-dd-yyyy") // test using postman
     private Date DOB;
     @Column(name = "email")
     private String email;

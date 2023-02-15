@@ -16,11 +16,7 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    //    private static final long serialVersionUID = 1L;
     @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO, generator = "SEQ")
-//    @SequenceGenerator(name = "SEQ", sequenceName = "CCGG_USER_SEQ")
-//    private int id;
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(
             name = "UUID",
@@ -35,21 +31,9 @@ public class User implements Serializable {
     @Column(name = "password", nullable = false)
     private String password;
 
-
-
-//    public void setId(int id) {
-//        this.id = id;
-//    }
-
-
-
     public void setPassword(String password) {
         this.password = password;
     }
-
-//    public int getId() {
-//        return id;
-//    }
 
     public void setUsername(String username) {
         this.username = username;

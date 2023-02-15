@@ -17,12 +17,6 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/employee")
 public class EmployeeController {
-
-//    EmployeeController@GetMapping
-//    public String testEmployee() {
-//        return "hello new user";
-//    }
-
     @Autowired
     EmployeeService employeeService;
     @GetMapping

@@ -28,8 +28,6 @@ public class EmployeeService {
     }
 
     public Employee updateAnEmployee(Employee employee, UUID id) {
-//        employeeDao.removeEmployeeByEmployeeID(id);
-//        employee.setEmployeeID(id);
         Employee employee1 = employeeDao.findAllByEmployeeID(id);
         employee1.setActive(employee.isActive());
         employee1.setAge(employee.getAge());
