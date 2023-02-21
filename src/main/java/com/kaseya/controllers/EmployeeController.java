@@ -2,15 +2,11 @@ package com.kaseya.controllers;
 
 import com.kaseya.beans.Employee;
 import com.kaseya.service.EmployeeService;
-import org.hibernate.annotations.Cache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
-import java.security.PublicKey;
 import java.util.List;
 import java.util.UUID;
 
@@ -19,6 +15,7 @@ import java.util.UUID;
 public class EmployeeController {
     @Autowired
     EmployeeService employeeService;
+
     @GetMapping
     @Cacheable(value = "employees")
     public List<Employee> getALLEmployees() {
@@ -43,7 +40,7 @@ public class EmployeeController {
 
     @DeleteMapping("/{id}")
     @CacheEvict(value = "employees", allEntries = true)
-    public void deleteeEmployee(@PathVariable UUID id) {
+    public void deleteEmployee(@PathVariable UUID id) {
         employeeService.removeAEmployee(id);
     }
 }

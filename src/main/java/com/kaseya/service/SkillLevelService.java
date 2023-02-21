@@ -11,6 +11,7 @@ import java.util.List;
 public class SkillLevelService {
     @Autowired
     private SkillLevelDao skillLevelDao;
+
     public SkillLevel addANewSkillLevel(SkillLevel skillLevel) {
         SkillLevel skillLevel1 = skillLevelDao.save(skillLevel);
         return skillLevel1;

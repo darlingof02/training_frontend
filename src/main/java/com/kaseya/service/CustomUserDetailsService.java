@@ -22,7 +22,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     @Autowired
     UserDao userDao;
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException { //have to return a userdetail
         User user = userDao.findByUsername(username);
         if (user != null) {
             return new JwtUserDetails(user.getId(), user.getUsername(), user.getPassword(), "ROLE_USER_2");
@@ -31,7 +31,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         throw new UsernameNotFoundException(String.format("USER_NOT_FOUND '%s'.", username));
     }
 
-    public com.kaseya.beans.User saveUser(com.kaseya.beans.User user) {
+    public User saveUser(com.kaseya.beans.User user) {
         String originPassword = user.getPassword();
         user.setPassword(new BCryptPasswordEncoder().encode(originPassword));
         return userDao.save(user);

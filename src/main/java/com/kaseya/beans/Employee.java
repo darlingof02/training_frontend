@@ -12,6 +12,18 @@ import java.util.UUID;
 @Entity
 @Table(name = "kaseyatraining.employee")
 public class Employee implements Serializable {
+    private static final long serialVersionUID = -4215379438393452763L;
+    public Employee(UUID employeeID, String firstName, String lastName, Date DOB, String email, boolean active, int age, SkillLevel skillLevel) {
+        this.employeeID = employeeID;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.DOB = DOB;
+        this.email = email;
+        this.active = active;
+        this.age = age;
+        this.skillLevel = skillLevel;
+    }
+
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(
@@ -43,6 +55,26 @@ public class Employee implements Serializable {
     public Employee() {
     }
 
+    public Employee(String firstName) {
+        this.employeeID = UUID.randomUUID();
+        this.firstName = firstName;
+        this.age = 0;
+        this.DOB = new Date();
+        this.email = "";
+        this.active = false;
+        this.lastName = "";
+        this.skillLevel = new SkillLevel();
+    }
+
+    public Employee(String firstName, SkillLevel skillLevel) {
+        this.firstName = firstName;
+        this.age = 0;
+        this.DOB = new Date();
+        this.email = "";
+        this.active = false;
+        this.lastName = "";
+        this.skillLevel = skillLevel;
+    }
 
     public UUID getEmployeeID() {
         return employeeID;
